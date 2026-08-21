@@ -1,0 +1,26 @@
+{
+  "name": "next-command-centre",
+  "version": "1.0.0",
+  "description": "NEXT Command Centre: live decision intelligence for HUL, built on the approved front-end prototype with a real backend and live HUL news signals.",
+  "private": true,
+  "type": "commonjs",
+  "main": "backend/server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "NODE_ENV=development node backend/server.js",
+    "test": "node --test",
+    "db:reset": "node backend/database/reset.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "node-cron": "^3.0.3",
+    "rss-parser": "^3.13.0"
+  }
+}

@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: next-command-centre
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 3001
+      - key: DATABASE_URL
+        value: backend/database/data.sqlite
+      - key: DEFAULT_MODE
+        value: demo
+      - key: ENABLE_SCHEDULER
+        value: "true"
+      - key: INGESTION_CRON
+        value: "15 6 * * *"
+      - key: MIN_REFRESH_INTERVAL_MINUTES
+        value: 15
+      - key: CRON_SECRET
+        generateValue: true
+    disk:
+      name: next-data
+      mountPath: /opt/render/project/src/backend/database
+      sizeGB: 1
